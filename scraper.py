@@ -17,10 +17,15 @@ for tck in tcks:
 #
 # # Find something on the page using css selectors
   root = lxml.html.fromstring(html)
-  d = root.cssselect("div.form-bottom.table.tbody")
+  d = root.cssselect("tr")
+
+  output = ""
+  for t in d:
+         output = output  + tostring(t) + "\n"
+         
 #
 # # Write out to the sqlite database using scraperwiki library
-  scraperwiki.sqlite.save(unique_keys=['tck'], data={"tck": tck, "data": tostring(d) })
+  scraperwiki.sqlite.save(unique_keys=['tck'], data={"tck": tck, "data": output })
 #
 # # An arbitrary query against the database
 # scraperwiki.sql.select("* from data where 'name'='peter'")
