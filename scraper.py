@@ -32,7 +32,7 @@ for tck in tcks:
          
 #
 # # Write out to the sqlite database using scraperwiki library
-  scraperwiki.sqlite.save(unique_keys=['tck'], data={"tck": tck, "data": output.decode("utf8") })
+  scraperwiki.sqlite.save(unique_keys=['tck'], data={"tck": tck, "data": output.encode("utf8") })
 #
 # # An arbitrary query against the database
 # scraperwiki.sql.select("* from data where 'name'='peter'")
