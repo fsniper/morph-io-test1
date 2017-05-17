@@ -20,7 +20,7 @@ for tck in tcks:
   d = root.cssselect("div.form-bottom")
 #
 # # Write out to the sqlite database using scraperwiki library
-  scraperwiki.sqlite.save(unique_keys=['tck'], data={"tck": tck, "data": d.tostring() })
+  scraperwiki.sqlite.save(unique_keys=['tck'], data={"tck": tck, "data": d[0].tostring() })
 #
 # # An arbitrary query against the database
 # scraperwiki.sql.select("* from data where 'name'='peter'")
