@@ -15,7 +15,7 @@ from lxml.etree import tostring
 
 url = "http://www.tmo.gov.tr:8081/default.asp?kimlikno=%s"
 tcks = [ "22870737466",
-         "22870737466"]
+         "17156574286"]
 #
 # # Read in a page
 for tck in tcks:
