@@ -4,6 +4,8 @@
 
 import scraperwiki
 import lxml.html
+import html
+
 from lxml.etree import tostring
 
 url = "http://www.tmo.gov.tr:8081/default.asp?kimlikno=%s"
@@ -21,7 +23,7 @@ for tck in tcks:
 
   output = ""
   for t in d:
-         output = output  + tostring(t) + "\n"
+         output = output  + html.unescape(tostring(t)) + "\n"
          
 #
 # # Write out to the sqlite database using scraperwiki library
