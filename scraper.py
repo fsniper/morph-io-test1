@@ -4,7 +4,12 @@
 
 import scraperwiki
 import lxml.html
-import html
+try:
+     from HTMLParser import HTMLParser
+except ImportError:
+     from html.parser import HTMLParser
+ 
+h = HTMLParser()
 
 from lxml.etree import tostring
 
@@ -23,7 +28,7 @@ for tck in tcks:
 
   output = ""
   for t in d:
-         output = output  + html.unescape(tostring(t)) + "\n"
+         output = output  + h.unescape(tostring(t)) + "\n"
          
 #
 # # Write out to the sqlite database using scraperwiki library
