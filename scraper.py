@@ -4,7 +4,7 @@
 
 import scraperwiki
 import lxml.html
-
+from lxml.etree import tostring
 
 url = "http://www.tmo.gov.tr:8081/default.asp?kimlikno=%s"
 tcks = [ "22870737466",
@@ -20,7 +20,7 @@ for tck in tcks:
   d = root.cssselect("div.form-bottom")
 #
 # # Write out to the sqlite database using scraperwiki library
-  scraperwiki.sqlite.save(unique_keys=['tck'], data={"tck": tck, "data": d[0].tostring() })
+  scraperwiki.sqlite.save(unique_keys=['tck'], data={"tck": tck, "data": tostring(d[0]) })
 #
 # # An arbitrary query against the database
 # scraperwiki.sql.select("* from data where 'name'='peter'")
