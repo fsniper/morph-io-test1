@@ -17,7 +17,7 @@ for tck in tcks:
 #
 # # Find something on the page using css selectors
   root = lxml.html.fromstring(html)
-  d = root.cssselect("div.form-bottom")
+  d = root.cssselect("div.form-bottom.table.tbody")
 #
 # # Write out to the sqlite database using scraperwiki library
   scraperwiki.sqlite.save(unique_keys=['tck'], data={"tck": tck, "data": tostring(d[0]) })
